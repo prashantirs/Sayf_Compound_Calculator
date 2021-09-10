@@ -151,7 +151,7 @@
         </div>
 
         <div class="two  col-lg-4 ">
-          <h1 class="text-center my-3">Earning Planner</h1>
+          <!-- <h1 class="text-center my-3">Earning Planner</h1>
           <div class="calculator">
             <div class="Principle my-4">
               <h3>Initial Investment</h3>
@@ -169,7 +169,111 @@
               <h3>Final Amount</h3>
               <input class="input-result input-calculator" type="text" id="txtresult" >
             </div>
-          </div>
+          </div> -->
+
+          <!-- Calculator -->
+
+    <div class="calculator">
+      <div class="calculator__container">
+        <div class="calculator__topContainer">
+          <h1>Earning Planner</h1>
+        </div>
+        <div class="calculator__middleContainer">
+          <form action="">
+            <div class="slider__container">
+              <label for="">Initial Investment</label>
+              <h3 id="initialValue">₹1000</h3>
+              <input
+                type="range"
+                min="100"
+                max="5000"
+                value="1000"
+                id="initialSlider"
+              />
+              <div class="slider__range">
+                <h2>₹100</h2>
+                <h2>₹5000</h2>
+              </div>
+            </div>
+            <div class="slider__container">
+              <label for="">Auto purchase</label>
+              <h3 id="autoValue">₹100</h3>
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="100"
+                id="autoSlider"
+              />
+              <div class="slider__range">
+                <h2>₹0</h2>
+                <h2>₹1000</h2>
+              </div>
+            </div>
+            <div class="interval__range">
+              <!-- <div>
+                <input type="radio" id="weekly" name="weekly" value="52" />
+                <label for="weekly">Weekly</label>
+              </div>
+              <div>
+                <input type="radio" id="biweekly" name="biweekly" value="26" />
+                <label for="biweekly">Bi-Weekly</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="monthly"
+                  name="monthly"
+                  value="12"
+                  checked
+                />
+                <label for="monthly">Monthly</label>
+              </div> -->
+              <div>
+                <input
+                  type="radio"
+                  id="huey"
+                  name="drone"
+                  value="huey"
+                  checked
+                />
+                <label for="huey">Weekly</label>
+              </div>
+
+              <div>
+                <input type="radio" id="dewey" name="drone" value="dewey" />
+                <label for="dewey">Bi-Weekly</label>
+              </div>
+
+              <div>
+                <input type="radio" id="louie" name="drone" value="louie" />
+                <label for="louie">Monthly</label>
+              </div>
+            </div>
+            <div class="slider__container">
+              <label for="">Length</label>
+              <h3 id="lengthValue">2</h3>
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="2"
+                id="lengthSlider"
+              />
+              <div class="slider__range">
+                <h2>1 Year</h2>
+                <h2>10 Years</h2>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="calculator__bottomContainer">
+          <h2>Your total value</h2>
+          <h1 id="totalValue"></h1>
+          <button class="buyBonds-btn">Buy Bonds Now</button>
+        </div>
+      </div>
+    </div>
 
         </div>
 
