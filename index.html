@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SayF</title>
-  <link rel="stylesheet" href="style.css?ver=1">
+  <link rel="stylesheet" href="style.css?ver=2">
 
    <!-- Favicon -->
    <link
@@ -151,27 +151,9 @@
         </div>
 
         <div class="two  col-lg-4 ">
-          <!-- <h1 class="text-center my-3">Earning Planner</h1>
-          <div class="calculator">
-            <div class="Principle my-4">
-              <h3>Initial Investment</h3>
-              <input class="input-calculator" type="text" name="principle" id="cal-principle" oninput="compound_intrest()" placeholder="  ₹ 5000">
-            </div>
-            <div class="Rate my-4">
-              <h3>Intrest Rate</h3>
-            <input class="input-calculator" type="text" name="rate" id="cal-rate" oninput="compound_intrest()" placeholder=" 12%">
-            </div>
-            <div class="Time my-4">
-              <h3>Time Period</h3>
-              <input class="input-calculator" type="text" name="time" id="cal-time" oninput="compound_intrest()" placeholder=" 5 Years">
-            </div>
-            <div class="result my-4 ">
-              <h3>Final Amount</h3>
-              <input class="input-result input-calculator" type="text" id="txtresult" >
-            </div>
-          </div> -->
+   
 
-          <!-- Calculator -->
+    <!-- Calculator -->
 
     <div class="calculator">
       <div class="calculator__container">
@@ -232,21 +214,34 @@
               <div>
                 <input
                   type="radio"
+                  class="duration"
                   id="huey"
                   name="drone"
-                  value="huey"
-                  checked
+                  value="52"
                 />
                 <label for="huey">Weekly</label>
               </div>
 
               <div>
-                <input type="radio" id="dewey" name="drone" value="dewey" />
+                <input
+                  type="radio"
+                  class="duration"
+                  id="dewey"
+                  name="drone"
+                  value="26"
+                />
                 <label for="dewey">Bi-Weekly</label>
               </div>
 
               <div>
-                <input type="radio" id="louie" name="drone" value="louie" />
+                <input
+                  type="radio"
+                  class="duration"
+                  id="louie"
+                  name="drone"
+                  value="12"
+                  checked
+                />
                 <label for="louie">Monthly</label>
               </div>
             </div>
@@ -266,6 +261,22 @@
               </div>
             </div>
           </form>
+          <div class="interestChange">
+            <div class="partner__conatainer">
+              <h2>Roundup your spare change</h2>
+              <input
+                type="checkbox"
+                class="roundup"
+                name="partner"
+                id=""
+                checked
+              />
+            </div>
+            <div class="partner__conatainer">
+              <h2>Partners store savings</h2>
+              <input type="checkbox" class="partner" name="partner" id="" />
+            </div>
+          </div>
         </div>
         <div class="calculator__bottomContainer">
           <h2>Your total value</h2>
@@ -419,7 +430,7 @@
 
 
 
-      <script src="index.js?ver=1"></script>
+      <script src="index.js?ver=2"></script>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
