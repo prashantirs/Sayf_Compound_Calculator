@@ -14,7 +14,7 @@ let partnerCheckbox = document.querySelector("input.partner");
 let roundUpCheckbox = document.querySelector("input.roundup");
 
 let interest = 9;
-let timeInterval = 12;
+let timeInterval = lengthSlider.value;
 
 durationMenu.forEach(
   (item) =>
@@ -26,37 +26,48 @@ durationMenu.forEach(
 
 roundUpCheckbox.addEventListener("click", () => {
   resetCalculator();
+  console.log("ASD");
 });
 
 partnerCheckbox.addEventListener("click", () => {
-  roundUpCheckbox.click();
   resetCalculator();
 });
 
 function resetCalculator() {
   initialValue.textContent = "₹" + initialSlider.value;
   autoValue.textContent = "₹" + autoSlider.value;
-  totalValue.textContent = `₹ ${(
-    compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1) +
-    sip(autoSlider.value, interest, timeInterval)
-  ).toFixed(2)}`;
-
   lengthValue.textContent = `${lengthSlider.value} ${
     lengthSlider.value > 1 ? "years" : "year"
   }`;
+
+  let ans = sip(autoSlider.value, interest, lengthSlider.value);
+
+  if (partnerCheckbox.checked)
+    ans += compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1);
+
+  if (roundUpCheckbox.checked) ans += roundUpSpare();
+
+  totalValue.textContent = `₹ ${ans.toFixed(2)}`;
 }
 
 // Compound Interest Calculator
-const compoundInterest = (p, t, r, n) => {
-  if (partnerCheckbox.checked) r = 0.04;
-  const amount = p * Math.pow(1 + r / n, n * t);
+const compoundInterest = (p, l, r, n) => {
+  let amount =
+    ((p / 25) * (Math.pow(1.0075, 12 * l) - 1) * 1.0075) / (9 / 1200);
   return amount;
 };
 
-const sip = (p, r, n) => {
-  if (partnerCheckbox.checked) r = 4;
-  let i = r / (100 * n);
-  const amount = p * (1 + i) * ((Math.pow(1 + i, n) - 1) / i);
+const sip = (p, r, l) => {
+  console.log(l);
+  let amount = (p * (Math.pow(1.00025, 365 * l) - 1) * 1.00025) / 0.00025;
+  return amount;
+};
+
+const roundUpSpare = () => {
+  let amount =
+    (600 * (Math.pow(1.0075, 12 * lengthSlider.value) - 1) * 1.0075) /
+    (9 / 1200);
+
   return amount;
 };
 
@@ -81,10 +92,14 @@ lengthSlider.oninput = function () {
     lengthSlider.value > 1 ? "years" : "year"
   }`;
 
-  totalValue.textContent = `₹ ${(
-    compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1) +
-    sip(autoSlider.value, interest, timeInterval)
-  ).toFixed(2)}`;
+  let ans = sip(autoSlider.value, interest, lengthSlider.value);
+
+  if (partnerCheckbox.checked)
+    ans += compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1);
+
+  if (roundUpCheckbox.checked) ans += roundUpSpare();
+
+  totalValue.textContent = `₹ ${ans.toFixed(2)}`;
 };
 
 resetCalculator();
