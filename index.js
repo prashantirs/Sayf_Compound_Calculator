@@ -73,18 +73,26 @@ const roundUpSpare = () => {
 
 initialSlider.oninput = function () {
   initialValue.textContent = "₹" + initialSlider.value;
-  totalValue.textContent = `₹ ${(
-    compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1) +
-    sip(autoSlider.value, interest, timeInterval)
-  ).toFixed(2)}`;
+  let ans = sip(autoSlider.value, interest, lengthSlider.value);
+
+  if (partnerCheckbox.checked)
+    ans += compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1);
+
+  if (roundUpCheckbox.checked) ans += roundUpSpare();
+
+  totalValue.textContent = `₹ ${ans.toFixed(2)}`;
 };
 
 autoSlider.oninput = function () {
   autoValue.textContent = "₹" + autoSlider.value;
-  totalValue.textContent = `₹ ${(
-    compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1) +
-    sip(autoSlider.value, interest, timeInterval)
-  ).toFixed(2)}`;
+  let ans = sip(autoSlider.value, interest, lengthSlider.value);
+
+  if (partnerCheckbox.checked)
+    ans += compoundInterest(initialSlider.value, lengthSlider.value, 0.09, 1);
+
+  if (roundUpCheckbox.checked) ans += roundUpSpare();
+
+  totalValue.textContent = `₹ ${ans.toFixed(2)}`;
 };
 
 lengthSlider.oninput = function () {
